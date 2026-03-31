@@ -1,0 +1,35 @@
+#include<iostream>
+#include<vector>
+using namespace std;
+
+
+class Solution {
+public:
+    int findMin(vector<int>& nums) {
+        int low = 0, high = nums.size()-1;
+
+        while(low<high){
+            int mid = (low+high)/2;
+            
+            if(nums[mid] > nums[high]){
+                low = mid+1;
+            }
+            // 1 3 3
+            else if (nums[mid] > nums[low]){
+                high = mid;
+
+            }
+            else{
+                high--;
+            }
+        }
+        return nums[low];
+    }
+};
+
+int main(){
+    Solution sol;
+    vector<int> arr = {1, 3, 3};
+    
+    return 0;
+}
